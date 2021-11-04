@@ -28,6 +28,9 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+console.log('task 1b:', createMenuItem('burrito', 10, 'Lunch'));
+console.log('task 1b:', createMenuItem('Quesadilla', 8, 'Lunch'));
+console.log('task 1b:', createMenuItem('Chips and Salsa', 5, 'Snack'));
 
 
 
@@ -47,9 +50,16 @@ const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  
+  discount: function(person){
+    if(person === 'teacher'|| person === 'student'){
+      return this.price - (this.price * 0.25);
+        }else if(person === 'public'){
+          return this.price - (this.price * 0.10);
+    }
+  }
 }
 
+console.log('task 2', burger.discount('teacher'));
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -68,7 +78,7 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log('task 3:', reviews[5].feedback);
 
 
 
@@ -77,6 +87,9 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
+reviews[7].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
+
+console.log('task 4:', reviews);
 
 
 
@@ -91,9 +104,12 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(array, name, rating, feedback){
+  array.push({name: name, rating: rating, feedback: feedback}); 
+  return array;
 }
+
+console.log(addReview(reviews, 'Daniela', 5, 'Beautiful atmosphere and wonderful vegan options!'));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function to return a review based on the index of the review in the array.
